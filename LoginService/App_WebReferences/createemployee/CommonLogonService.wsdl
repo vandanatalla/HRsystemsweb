@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LoginValidation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginValidationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginValidationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Createemployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="imgarray" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="designation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="manager" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateemployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateemployeeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSinglevalue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="columnname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSinglevalueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateSinglevalueResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="columnname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imgarray" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateImageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetriveByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetriveByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetriveByNameResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateImageAndroid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="columnname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imgarray" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateImageAndroidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateImageAndroidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginValidationSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginValidation" />
+  </wsdl:message>
+  <wsdl:message name="LoginValidationSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginValidationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateemployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:Createemployee" />
+  </wsdl:message>
+  <wsdl:message name="CreateemployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateemployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSinglevalueSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSinglevalue" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSinglevalueSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSinglevalueResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateImageSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateImage" />
+  </wsdl:message>
+  <wsdl:message name="UpdateImageSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetriveByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:RetriveByName" />
+  </wsdl:message>
+  <wsdl:message name="RetriveByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:RetriveByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateImageAndroidSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateImageAndroid" />
+  </wsdl:message>
+  <wsdl:message name="UpdateImageAndroidSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateImageAndroidResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CommonLogonServiceSoap">
+    <wsdl:operation name="LoginValidation">
+      <wsdl:input message="tns:LoginValidationSoapIn" />
+      <wsdl:output message="tns:LoginValidationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Createemployee">
+      <wsdl:input message="tns:CreateemployeeSoapIn" />
+      <wsdl:output message="tns:CreateemployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSinglevalue">
+      <wsdl:input message="tns:UpdateSinglevalueSoapIn" />
+      <wsdl:output message="tns:UpdateSinglevalueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <wsdl:input message="tns:UpdateImageSoapIn" />
+      <wsdl:output message="tns:UpdateImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetriveByName">
+      <wsdl:input message="tns:RetriveByNameSoapIn" />
+      <wsdl:output message="tns:RetriveByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImageAndroid">
+      <wsdl:input message="tns:UpdateImageAndroidSoapIn" />
+      <wsdl:output message="tns:UpdateImageAndroidSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CommonLogonServiceSoap" type="tns:CommonLogonServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginValidation">
+      <soap:operation soapAction="http://tempuri.org/LoginValidation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Createemployee">
+      <soap:operation soapAction="http://tempuri.org/Createemployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSinglevalue">
+      <soap:operation soapAction="http://tempuri.org/UpdateSinglevalue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <soap:operation soapAction="http://tempuri.org/UpdateImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetriveByName">
+      <soap:operation soapAction="http://tempuri.org/RetriveByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImageAndroid">
+      <soap:operation soapAction="http://tempuri.org/UpdateImageAndroid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CommonLogonServiceSoap12" type="tns:CommonLogonServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginValidation">
+      <soap12:operation soapAction="http://tempuri.org/LoginValidation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Createemployee">
+      <soap12:operation soapAction="http://tempuri.org/Createemployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSinglevalue">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSinglevalue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <soap12:operation soapAction="http://tempuri.org/UpdateImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetriveByName">
+      <soap12:operation soapAction="http://tempuri.org/RetriveByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImageAndroid">
+      <soap12:operation soapAction="http://tempuri.org/UpdateImageAndroid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommonLogonService">
+    <wsdl:port name="CommonLogonServiceSoap" binding="tns:CommonLogonServiceSoap">
+      <soap:address location="http://170.225.97.68/aspnet_client/LoginService/CommonLogonService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CommonLogonServiceSoap12" binding="tns:CommonLogonServiceSoap12">
+      <soap12:address location="http://170.225.97.68/aspnet_client/LoginService/CommonLogonService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
